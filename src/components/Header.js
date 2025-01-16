@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Search, ShoppingCart } from 'lucide-react';
-import { Link } from 'react-router-dom';
 import '../styles/Header.css';
 
 import logoImage from '../assets/halycon_logo2.png';
@@ -40,7 +39,6 @@ const Header = () => {
     setIsSearchOpen(false);
   };
 
-  // Add or remove the classes on body element when cart is toggled
   useEffect(() => {
     if (isCartOpen) {
       document.body.classList.add('scrollbar-red');
@@ -146,11 +144,11 @@ const Header = () => {
 
       {/* Backdrop overlay */}
       {(isNavOpen || isCartOpen) && (
-  <div 
-    className="backdrop-overlay"
-    onClick={closeAllOverlays}
-  ></div>
-)}
+        <div 
+          className="backdrop-overlay"
+          onClick={closeAllOverlays}
+        ></div>
+      )}
     </header>
   );
 };

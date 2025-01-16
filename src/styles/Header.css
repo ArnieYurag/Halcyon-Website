@@ -220,7 +220,7 @@ transform: translateX(-50%);
 }
 
 .scrollbar-red::-webkit-scrollbar-thumb {
-  background-color: #9d4a43; /* Change to red */
+  background-color: #9d4a43;
   border-radius: 10px;
 }
 

@@ -3,7 +3,6 @@ import { Send, Facebook, Twitter, Instagram } from 'lucide-react';
 import '../styles/Footer.css'
 import DiscountPopup from './DiscountPopup';
 
-import logoImage from '../assets/halycon_logo2.png';
 import newsLetterImage from '../assets/newsLetterImage.jpg'
 
 const Footer = () => {
@@ -54,7 +53,7 @@ const Footer = () => {
             </button>
           </form>
           {/* Social Media Links */}
-          <div className="social-links">
+          {/* <div className="social-links">
             <a href="#" className="social-icon">
               <Facebook size={34} />
             </a>
@@ -64,7 +63,19 @@ const Footer = () => {
             <a href="#" className="social-icon">
               <Instagram size={34} />
             </a>
+          </div> */}
+          {/* for build/test */}
+          <div className="social-links">
+          <div className="social-icon" aria-label="Facebook">
+            <Facebook size={34} />
           </div>
+          <div className="social-icon" aria-label="Twitter">
+            <Twitter size={34} />
+          </div>
+          <div className="social-icon" aria-label="Instagram">
+            <Instagram size={34} />
+          </div>
+        </div>
         </div>
       </div> 
       <div className="copyright">

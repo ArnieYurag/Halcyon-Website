@@ -8,14 +8,14 @@ import Footer from './components/Footer';
 
 function App() {
   return (
-    <Router> {/* Wrap the entire app in Router */}
+    <Router>
       <div className="App">
         <div className="scrollable-content">
           <Header />
-          <Routes> {/* Define Routes inside Router */}
-            <Route path="/" element={<LandingPage />} /> {/* Route for landing page */}
-            <Route path="/shop" element={<ShopPage />} /> {/* Route for shop page */}
-            <Route path="/contact" element={<ContactPage />} /> {/* Route for contact page */}
+          <Routes>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/shop" element={<ShopPage />} />
+            <Route path="/contact" element={<ContactPage />} /> 
           </Routes>
           <Footer />
         </div>

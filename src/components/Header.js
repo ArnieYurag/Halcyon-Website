@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Menu, X, Search, ShoppingCart } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import '../styles/Header.css';
 
 import logoImage from '../assets/halycon_logo2.png';
@@ -38,6 +39,17 @@ const Header = () => {
     setIsCartOpen(false);
     setIsSearchOpen(false);
   };
+
+  // Add or remove the classes on body element when cart is toggled
+  useEffect(() => {
+    if (isCartOpen) {
+      document.body.classList.add('scrollbar-red');
+      document.body.classList.remove('hide-scrollbar');
+    } else {
+      document.body.classList.remove('scrollbar-red');
+      document.body.classList.remove('hide-scrollbar');
+    }
+  }, [isCartOpen]);
 
   return (
     <header className="header">
@@ -111,6 +123,9 @@ const Header = () => {
             placeholder="Search..."
             className="search-input"
           />
+          <button className="searchBtn">
+              Search
+          </button>
         </div>
       )}
 

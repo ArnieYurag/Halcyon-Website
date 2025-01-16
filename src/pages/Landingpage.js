@@ -1,11 +1,17 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import '../styles/LandingPage.css';
 
+import ItemCard from '../components/ItemCard';
+
 import heroImage from '../assets/heroImage1.jpeg';
-import sunshineBouquetImage from '../assets/sunshine_bouquet.png';
-import lavenderBouquetImage from '../assets/lavender_bouquet.png';
-import scarletBouquetImage from '../assets/scarlet_bouquet.png';
+import sunshineBouquetImage from '../assets/flowers/sunshine_bouquet.png';
+import lavenderBouquetImage from '../assets/flowers/lavender_bouquet.png';
+import pinkBouquetImage from '../assets/flowers/pinkdelight_bouquet.png';
+import weddingImage from '../assets/weddingImage.jpg';
+import birthdayImage from '../assets/birthdayImage.jpg'
+import funeralImage from '../assets/funeralImage.jpg'
 
 const testimonials = [
   {
@@ -33,31 +39,53 @@ const testimonials = [
 const featuredProducts = [
   {
     id: 1,
-    name: "Sunshine Bouquet",
+    name: "Sunshines",
     price: "$59.99",
     description: "A vibrant mix of yellow roses and white primrose",
     image: sunshineBouquetImage
   },
   {
     id: 2,
+    name: "Pink Delight",
+    price: "$79.99",
+    description: "A charming pink flowers, perfect for expressing admiration",
+    image : pinkBouquetImage
+  },
+  {
+    id: 3,
     name: "Lavender Dreams",
     price: "$69.99",
     description: "A tranquil arrangement of lavender, and lilac-colored roses",
     image : lavenderBouquetImage
   },
-  {
-    id: 3,
-    name: "Scarlet Elegance",
-    price: "$54.99",
-    description: "Dramatic bouquet of deep red roses, and burgundy daisies ",
-    image: scarletBouquetImage
-  },
 
 ];
 
+const occasions = [
+  {
+    id: 1,
+    title: "Weddings",
+    description: "Make your special day unforgettable with our elegant wedding flowers",
+    image: weddingImage
+  },
+  {
+    id: 2,
+    title: "Birthdays",
+    description: "Celebrate life's milestones with our beautiful birthday arrangements",
+    image: birthdayImage
+  },
+  {
+    id: 3,
+    title: "Funerals",
+    description: "Express your sympathy with our respectful memorial arrangements",
+    image: funeralImage
+  },
+];
+
 const LandingPage = () => {
-    const [currentProduct, setCurrentProduct] = useState(0);
+    const [currentProduct, setCurrentProduct] = useState(1);
     const [currentTestimonial, setCurrentTestimonial] = useState(0);
+    const navigate = useNavigate();
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -76,6 +104,10 @@ const LandingPage = () => {
     setCurrentProduct((prev) => (prev - 1 + featuredProducts.length) % featuredProducts.length);
   };
 
+  const handleShopNowClick = () => {
+    navigate('/shop');  // Navigate ShopPage
+  };
+
   return (
     <div>
       {/* Hero Section */}
@@ -89,7 +121,7 @@ const LandingPage = () => {
           <div className="heroContent">
             <h1 className="heroTitle">Blooming Beauties</h1>
             <p className="heroText">Crafting Natural Beauty into Memorable Moments</p>
-            <button className="button">
+            <button className="button" onClick={handleShopNowClick}>
               Shop Now
             </button>
           </div>
@@ -102,16 +134,14 @@ const LandingPage = () => {
             <h2 className="sectionTitle">
                 Flowers of the Season
             </h2>
-          <div className='carouselContainer'>
-          <div className="productSection">
-            <button
-              onClick={prevProduct}
-              className="navigationButton navigationButtonLeft"
-            >
-              <ChevronLeft className="navigationIcon" />
-            </button>
-
+          <div className="productSection"> 
             <div className="productsRow">
+              <button
+                onClick={prevProduct}
+                className="navigationButton"
+              >
+                <ChevronLeft className="navigationIcon" />
+              </button>   
               {featuredProducts.map((product, index) => {
                 const isCurrent = index === currentProduct;
                 return (
@@ -139,22 +169,36 @@ const LandingPage = () => {
                   </div>
                 );
               })}
+              <button
+                onClick={nextProduct}
+                className="navigationButton"
+              >
+                <ChevronRight className="navigationIcon" />
+              </button>
             </div>
-
-            <button
-              onClick={nextProduct}
-              className="navigationButton navigationButtonRight"
-            >
-              <ChevronRight className="navigationIcon" />
-            </button>
           </div>
+        </div>
+      </div>
+      {/* Occasion Section */}
+      <div className="section">
+        <div className="sectionContainer">
+          <h2 className="sectionTitle">Special Occasions</h2>
+          <div className="itemsGrid">
+            {occasions.map((occasion) => (
+              <ItemCard 
+                key={occasion.id} 
+                item={occasion} 
+                buttonText="View Collection"  // Set button text for occasions
+                isProduct={false}
+              />
+            ))}
           </div>
         </div>
       </div>
 
       {/* Testimonials Section */}
       <div className="sectionTestimonials">
-        <div className="sectionContainer">
+        <div className="sectionContainerCarousel">
           <h2 className="sectionTitle">
             What Our Customers Say
           </h2>
@@ -166,7 +210,7 @@ const LandingPage = () => {
                   "{testimonials[currentTestimonial].text}"
                 </p>
                 <p className="testimonialAuthor">
-                  - {testimonials[currentTestimonial].author}
+                  {testimonials[currentTestimonial].author}
                 </p>
               </div>
             </div>

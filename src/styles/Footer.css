@@ -1,6 +1,4 @@
-
-  
-  .newsletter-section {
+ .newsletter-section {
     display: flex;
     height: 500px;
     overflow: hidden;
@@ -53,6 +51,7 @@
     border: 1px solid #e6c2bf;
     outline: none;
     min-width: 20rem;
+    color: #9d4a43;
   }
   .email-input:focus {
     border-color: #9d4a43;
@@ -74,7 +73,6 @@
   .subscribe-button:hover {
     background-color: #8a3f39;
   }
-
   .social-links {
     display: flex;
     gap: 1.5rem;

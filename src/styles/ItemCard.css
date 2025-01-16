@@ -1,0 +1,91 @@
+.itemsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 5rem;
+    padding: 0 1rem;
+  }
+.itemCard, .occasionCard {
+    background: white;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .itemCard:hover, .occasionCard:hover {
+    transform: translateY(-5px);
+  }
+  
+  .itemImageContainer {
+    width: 100%;
+    height: 15rem;
+    overflow: hidden;
+  }
+
+  .itemImageProduct, .itemImageOccasion {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s ease;
+  }
+  
+
+  /* Product Image (Contain) */
+.itemImageProduct {
+    object-fit: contain;
+    margin-top: 1.5rem;
+  }
+  
+  /* Occasion Image (Cover) */
+  .itemImageOccasion {
+    object-fit: cover;
+  }
+  
+  .itemCard:hover .itemImageProduct,
+  .occasionCard:hover .itemImageOccasion {
+    transform: scale(1.1);
+  }
+  
+  .itemContent {
+    padding: 1.5rem;
+    text-align: center;
+  }
+  
+  .itemTitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #9d4a43;
+  }
+  
+  .itemDescription {
+    font-size: 1rem;
+    color: #9d4a43;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+  }
+  
+  .itemPrice {
+    color: #9d4a43;
+  }
+
+  .card-button {
+    opacity: 0; /* Initially hidden */
+    background-color: #9d4a43;
+    color: white;
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  /* Show the "Add to Cart" button on hover */
+  .itemCard:hover .card-button {
+    opacity: 1;
+  }

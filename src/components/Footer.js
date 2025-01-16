@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Send, Facebook, Twitter, Instagram } from 'lucide-react';
 import '../styles/Footer.css'
+import DiscountPopup from './DiscountPopup';
 
 import logoImage from '../assets/halycon_logo2.png';
 import newsLetterImage from '../assets/newsLetterImage.jpg'
@@ -16,6 +17,8 @@ const Footer = () => {
   };
 
   return (
+    <>
+      <DiscountPopup />
     <footer className="footer">
       {/* Newsletter Section */}
        <div className="newsletter-section">
@@ -68,6 +71,7 @@ const Footer = () => {
             <p>© {new Date().getFullYear()} Halcyon. All rights reserved.</p>
         </div>
     </footer>
+    </>
   );
 };
 

@@ -1,6 +1,6 @@
 // src/pages/ShopPage.js
 
-import React from 'react';
+import React, {useEffect} from 'react';
 import '../styles/ShopPage.css';
 
 // Import the ItemCard component
@@ -110,8 +110,13 @@ const products = [
 ];
 
 const ShopPage = () => {
+  useEffect(() => {
+
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
-    <div className="shopPage">
+    <div className="shopPage animate-fade-up delay-100">
       <h2 className="shopTitle">Our Flower Bouquets</h2>
       <div className="productsGrid">
         {products.map((product) => (

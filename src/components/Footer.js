@@ -18,7 +18,7 @@ const Footer = () => {
   return (
     <>
       <DiscountPopup />
-    <footer className="footer">
+    <footer className="footer animate-fade-up delay-300">
       {/* Newsletter Section */}
        <div className="newsletter-section">
         <div className="newsletter-image-container">

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/ContactPage.css';
 
 const ContactPage = () => {
@@ -20,12 +20,15 @@ const ContactPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission here
     console.log('Form submitted:', formData);
   };
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
-    <div className="contact-container">
+    <div className="contact-container animate-fade-up delay-100">
       <h1 className='contact-title'>Have a Question?</h1>
       <p className='contact-subtitle'>Our team is happy to assist you!</p>
       <form className='contact-form' onSubmit={handleSubmit}>

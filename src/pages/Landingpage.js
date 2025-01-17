@@ -96,6 +96,10 @@ const LandingPage = () => {
     return () => clearInterval(timer);
   }, []);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const nextProduct = () => {
     setCurrentProduct((prev) => (prev + 1) % featuredProducts.length);
   };
@@ -111,7 +115,7 @@ const LandingPage = () => {
   return (
     <div>
       {/* Hero Section */}
-      <div className="hero">
+      <div className="hero animate-fade-up delay-100">
         <img 
           src={heroImage}
           alt="Beautiful flower arrangement"

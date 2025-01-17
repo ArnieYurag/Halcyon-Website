@@ -30,7 +30,7 @@ const DiscountPopup = () => {
 
   return (
     <div className="popup-overlay">
-      <div className="popup-content">
+      <div className="popup-content animate-fade-up delay-200">
         <button 
           className="popup-close"
           onClick={() => setIsVisible(false)}
